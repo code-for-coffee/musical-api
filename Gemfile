@@ -5,6 +5,7 @@ gem 'json'
 gem 'pry'
 gem 'sinatra-activerecord'
 gem 'rainbow'
+gem 'bcrypt'
 
 group :development do
 	gem 'mysql2'	
