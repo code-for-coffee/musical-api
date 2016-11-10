@@ -1,4 +1,7 @@
 class AccountController < ApplicationController
+
+	@username = ''
+
 	get '/' do
 		# login/registration page
 		erb :login
@@ -29,6 +32,8 @@ class AccountController < ApplicationController
 		@account_message = "You have successfully registered and you are logged in :)"
 
 		session[:user] = @model
+		@username = session[:user][:username]
+		#binding.pry
 
 		erb :login_notice
 
@@ -52,6 +57,10 @@ class AccountController < ApplicationController
 		if @model.password_hash == BCrypt::Engine.hash_secret(@password, @model.password_salt)
 			@account_message = "Welcome back!"
 			session[:user] = @model
+
+			@username = session[:user][:username]
+			#binding.pry
+
 			return erb :login_notice
 		else
 			@account_message = "Sorry, you password did not match. Try again?"
@@ -65,6 +74,7 @@ class AccountController < ApplicationController
 		# set session to nil
 		# they will then need to login again
 		session[:user] = nil
+		@username = nil
 		redirect '/'
 	end
 

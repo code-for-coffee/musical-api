@@ -1,6 +1,7 @@
 class ApplicationController < Sinatra::Base
 
 	@account_message = ""
+	@username = ''
 
 	require 'bundler'
 	Bundler.require
@@ -32,7 +33,7 @@ class ApplicationController < Sinatra::Base
 	end
 
 	get '/' do
-		{:message => 'Welcome'}.to_json
+		erb :home
 	end
 
 end

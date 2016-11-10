@@ -8,11 +8,20 @@
 	<h1>Musical API</h1>
 	<section>
 		<% if session[:user] %>
-			<strong>Welcome back, <%= session[:user] %></strong>
+			<strong>Welcome back, <%= @username %></strong>
 		<% else %>
 			<em>Hey! Welcome first timer. Consider registering?</em>
 		<% end %>
 	</section>
+	<hr>
+	<a href='/'>Home</a> | <a href='/account/supersecret'>Invitation</a>
+	| 
+	
+	<% if session[:user] %>
+		<a href='/account/logout'>Logout</a>
+	<% else %>
+		<a href='/account'>Login/Register</a>
+	<% end %>
 	<hr>
 	<%= yield %>
 </body>
