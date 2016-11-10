@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Musical API Login/Registration</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+	<h1>Musical API</h1>
+	<section>
+		<% if session[:user] %>
+			<strong>Welcome back, <%= session[:user] %></strong>
+		<% else %>
+			<em>Hey! Welcome first timer. Consider registering?</em>
+		<% end %>
+	</section>
+	<hr>
+	<%= yield %>
+</body>
+</html>
